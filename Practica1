@@ -1,0 +1,72 @@
+// Trabajo Práctico 1 - Ejercicio 1 - Segundo Semestre- Jorge Cuichan
+
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+
+    int ID, stock = 0, precio, opcion, unidades, ganancias;
+    char nombre[20];
+
+    printf("Ingrese el ID del vehiculo: ");
+    scanf("%d", &ID);
+
+    printf("Ingrese el nombre del vehiculo: ");
+    scanf("%s", nombre);
+
+    printf("Ingrese el stock del vehiculo: ");
+    scanf("%d", &stock);
+
+    printf("Ingrese el precio del vehiculo: ");
+    scanf("%d", &precio);
+
+    do
+    {
+        printf("Ingrese cuantas unidades desea vender: ");
+        scanf("%d", &unidades);
+
+        if (unidades >= stock)
+
+            printf("No hay stock suficiente para realizar la venta\n");
+        printf("Intente nuevamente\n");
+
+    } while (unidades >= stock);
+
+    ganancias = precio * unidades;
+    stock = stock - unidades;
+    printf("Venta realizada con exito\n");
+    printf("Stock restante: %d\n", stock);
+
+    printf("Ingrese la opcion que desea realizar: \n");
+    printf("1. Rebastecer stock\n");
+    printf("2. Mostrar ganancias\n");
+    printf("3. Mostrar stock\n");
+    printf("0. Salir\n");
+
+    scanf("%d", &opcion);
+
+    while (opcion != 0)
+    {
+        switch (opcion)
+        {
+        case 1:
+            printf("Ingrese nuevo stock: ");
+            scanf("%d", &stock);
+
+            break;
+        case 2:
+
+            scanf("%d", &stock);
+            printf("Ganancias: %d\n", ganancias);
+
+            break;
+        case 3:
+
+            scanf("%d", &stock);
+            printf("Stock: %d\n", stock);
+        }
+    }
+
+    return 0;
+}
+
