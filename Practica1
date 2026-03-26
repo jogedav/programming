@@ -20,17 +20,12 @@ int main(int argc, char const *argv[])
     printf("Ingrese el precio del vehiculo: ");
     scanf("%d", &precio);
 
-    do
+    do while (unidades > stock)
     {
-        printf("Ingrese cuantas unidades desea vender: ");
-        scanf("%d", &unidades);
-
-        if (unidades >= stock)
-
-            printf("No hay stock suficiente para realizar la venta\n");
+        printf("No hay stock suficiente para realizar la venta\n");
         printf("Intente nuevamente\n");
-
-    } while (unidades >= stock);
+    }
+    while (unidades >= stock);
 
     ganancias = precio * unidades;
     stock = stock - unidades;
@@ -69,4 +64,3 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-
